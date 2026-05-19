@@ -128,7 +128,7 @@ export default function App() {
   const optionClass = "w-full py-4 px-5 rounded-xl border text-left font-normal text-[#f0e6d3]";
 
   return (
-    <div style={{ fontFamily: "'Space Grotesk', sans-serif" }} className="bg-[#1a1a1a] min-h-screen text-[#f0e6d3]">
+    <div style={{ fontFamily: "'Space Grotesk', sans-serif", backgroundColor: '#1a1a1a', minHeight: '100vh', color: '#f0e6d3' }}>
       <div className="max-w-[420px] mx-auto min-h-screen px-6 py-12 relative">
         <div className={`transition-opacity duration-400 ${visible ? "opacity-100" : "opacity-0"}`}>
           {screen === 1 && (
