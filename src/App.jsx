@@ -47,20 +47,283 @@ const PRODUCTS = {
   ],
 };
 
+const PRODUCT_METADATA = {
+  "Himalaya Purifying Neem Face Wash": { ingredientTags: ["neem", "oil_control", "foaming"], activeIngredients: ["neem"], irritationRisk: 3, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate"], avoidFor: ["dry", "sensitive"], textureType: "gel cleanser", barrierFriendly: false, fungalAcneSafe: false, routineComplexity: 1 },
+  "Cetaphil Gentle Skin Cleanser": { ingredientTags: ["non_stripping", "fragrance_free", "barrier_support"], activeIngredients: ["glycerin"], irritationRisk: 1, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: [], textureType: "cream cleanser", barrierFriendly: true, fungalAcneSafe: true, routineComplexity: 1 },
+  "Simple Refreshing Facial Wash": { ingredientTags: ["fragrance_free", "non_stripping", "light_foam"], activeIngredients: ["panthenol"], irritationRisk: 1, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: [], textureType: "gel cleanser", barrierFriendly: true, fungalAcneSafe: true, routineComplexity: 1 },
+  "Re'equil Oil Control Face Wash": { ingredientTags: ["low_ph", "oil_control", "foaming"], activeIngredients: ["zinc_pca"], irritationRisk: 2, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: ["dry"], textureType: "gel cleanser", barrierFriendly: true, fungalAcneSafe: true, routineComplexity: 1 },
+  "Minimalist Salicylic Acid 0.3% Face Wash": { ingredientTags: ["bha", "exfoliating_cleanser", "oil_control"], activeIngredients: ["salicylic_acid"], irritationRisk: 3, beginnerSafe: false, experienceCompatibility: ["intermediate", "advanced"], avoidFor: ["dry", "sensitive"], textureType: "active cleanser", barrierFriendly: false, fungalAcneSafe: true, routineComplexity: 2 },
+  "Sebamed Clear Face Foaming Cleanser": { ingredientTags: ["ph_5_5", "foaming", "acne_safe"], activeIngredients: ["panthenol"], irritationRisk: 2, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: ["very_dry"], textureType: "foam cleanser", barrierFriendly: true, fungalAcneSafe: true, routineComplexity: 1 },
+  "Neutrogena Extra Gentle Cleanser": { ingredientTags: ["non_stripping", "barrier_support", "low_irritation"], activeIngredients: ["glycerin"], irritationRisk: 1, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: [], textureType: "lotion cleanser", barrierFriendly: true, fungalAcneSafe: true, routineComplexity: 1 },
+  "Emolene Moisturizing Cream": { ingredientTags: ["humectant", "lightweight", "pharmacy"], activeIngredients: ["propylene_glycol"], irritationRisk: 1, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: [], textureType: "light cream", barrierFriendly: true, fungalAcneSafe: true, routineComplexity: 1 },
+  "Himalaya Nourishing Skin Cream": { ingredientTags: ["basic_moisturizer", "budget", "occlusive"], activeIngredients: ["aloe"], irritationRisk: 2, beginnerSafe: true, experienceCompatibility: ["beginner"], avoidFor: ["very_oily", "fungal_acne"], textureType: "cream", barrierFriendly: true, fungalAcneSafe: false, routineComplexity: 1 },
+  "Cetaphil Moisturising Lotion": { ingredientTags: ["barrier_support", "fragrance_free", "classic"], activeIngredients: ["glycerin", "niacinamide"], irritationRisk: 1, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: [], textureType: "lotion", barrierFriendly: true, fungalAcneSafe: true, routineComplexity: 1 },
+  "Sebamed Clear Face Care Gel": { ingredientTags: ["gel", "oil_free", "fungal_acne_safe"], activeIngredients: ["hyaluronic_acid", "panthenol"], irritationRisk: 1, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: ["dry"], textureType: "gel", barrierFriendly: true, fungalAcneSafe: true, routineComplexity: 1 },
+  "Cetaphil DAM Daily Advanced Ultra Hydrating Lotion": { ingredientTags: ["barrier_repair", "deep_hydration", "fragrance_free"], activeIngredients: ["glycerin", "shea_butter"], irritationRisk: 1, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: ["very_oily"], textureType: "rich lotion", barrierFriendly: true, fungalAcneSafe: false, routineComplexity: 1 },
+  "Minimalist Multi-Peptide + HA Moisturizer": { ingredientTags: ["peptides", "hyaluronic_acid", "gel_cream"], activeIngredients: ["peptides", "hyaluronic_acid"], irritationRisk: 1, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: [], textureType: "gel cream", barrierFriendly: true, fungalAcneSafe: true, routineComplexity: 1 },
+  "Dot & Key Watermelon Hyaluronic Cooling Moisturizer": { ingredientTags: ["hyaluronic_acid", "gel", "fragrance"], activeIngredients: ["hyaluronic_acid"], irritationRisk: 3, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate"], avoidFor: ["sensitive"], textureType: "cooling gel", barrierFriendly: false, fungalAcneSafe: false, routineComplexity: 1 },
+  "Plum E-Luminence Simply Supple Moisturizer": { ingredientTags: ["vitamin_e", "nourishing", "cream"], activeIngredients: ["vitamin_e"], irritationRisk: 2, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate"], avoidFor: ["oily", "fungal_acne"], textureType: "cream", barrierFriendly: true, fungalAcneSafe: false, routineComplexity: 1 },
+  "Minimalist Niacinamide 10% + Zinc 1%": { ingredientTags: ["niacinamide", "zinc", "oil_control"], activeIngredients: ["niacinamide", "zinc"], irritationRisk: 2, beginnerSafe: false, experienceCompatibility: ["intermediate", "advanced"], avoidFor: ["very_sensitive"], textureType: "water serum", barrierFriendly: true, fungalAcneSafe: true, routineComplexity: 2 },
+  "Minimalist Alpha Arbutin 2% + HA": { ingredientTags: ["alpha_arbutin", "hyaluronic_acid", "pigmentation"], activeIngredients: ["alpha_arbutin", "hyaluronic_acid"], irritationRisk: 1, beginnerSafe: false, experienceCompatibility: ["intermediate", "advanced"], avoidFor: [], textureType: "water serum", barrierFriendly: true, fungalAcneSafe: true, routineComplexity: 2 },
+  "Minimalist Hyaluronic Acid 2% + PGA": { ingredientTags: ["hyaluronic_acid", "hydration", "barrier_support"], activeIngredients: ["hyaluronic_acid", "pga"], irritationRisk: 1, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: [], textureType: "hydrating serum", barrierFriendly: true, fungalAcneSafe: true, routineComplexity: 1 },
+  "The Derma Co 10% Vitamin C Face Serum": { ingredientTags: ["vitamin_c", "antioxidant", "brightening"], activeIngredients: ["vitamin_c"], irritationRisk: 3, beginnerSafe: false, experienceCompatibility: ["intermediate", "advanced"], avoidFor: ["sensitive"], textureType: "active serum", barrierFriendly: false, fungalAcneSafe: true, routineComplexity: 2 },
+  "Some By Mi AHA BHA PHA 30 Days Miracle Serum": { ingredientTags: ["aha", "bha", "pha", "strong_exfoliant"], activeIngredients: ["aha", "bha", "pha"], irritationRisk: 5, beginnerSafe: false, experienceCompatibility: ["advanced"], avoidFor: ["dry", "sensitive", "barrier_damage"], textureType: "exfoliating serum", barrierFriendly: false, fungalAcneSafe: false, routineComplexity: 3 },
+  "Ponds Sun Protect Non-Oily Sunscreen SPF 50": { ingredientTags: ["spf_50", "lightweight", "budget"], activeIngredients: ["uv_filters"], irritationRisk: 2, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: ["sensitive"], textureType: "lotion sunscreen", barrierFriendly: true, fungalAcneSafe: false, routineComplexity: 1 },
+  "Episoft AC Moisturizer SPF 30": { ingredientTags: ["spf_30", "moisturizing_spf", "minimal_routine"], activeIngredients: ["uv_filters", "glycerin"], irritationRisk: 1, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: [], textureType: "moisturizer sunscreen", barrierFriendly: true, fungalAcneSafe: true, routineComplexity: 1 },
+  "Bello Photostable Emulgel SPF 40+ PA+++": { ingredientTags: ["broad_spectrum", "matte", "pharmacy"], activeIngredients: ["uv_filters"], irritationRisk: 2, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: ["dry"], textureType: "emulgel sunscreen", barrierFriendly: true, fungalAcneSafe: true, routineComplexity: 1 },
+  "Minimalist Sunscreen SPF 50 PA++++": { ingredientTags: ["spf_50", "pa++++", "no_white_cast"], activeIngredients: ["uv_filters"], irritationRisk: 1, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: [], textureType: "fluid sunscreen", barrierFriendly: true, fungalAcneSafe: true, routineComplexity: 1 },
+  "Re'equil Ultra Matte Dry Touch Sunscreen SPF 50 PA++++": { ingredientTags: ["spf_50", "matte", "silicone_base"], activeIngredients: ["uv_filters"], irritationRisk: 2, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: ["dry"], textureType: "matte sunscreen", barrierFriendly: true, fungalAcneSafe: true, routineComplexity: 1 },
+  "Dot & Key UV Invisible Sunscreen SPF 50 PA++++": { ingredientTags: ["spf_50", "invisible_finish", "fragrance"], activeIngredients: ["uv_filters"], irritationRisk: 3, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: ["sensitive"], textureType: "gel sunscreen", barrierFriendly: false, fungalAcneSafe: false, routineComplexity: 1 },
+  "Acne UV Gel SPF 50": { ingredientTags: ["spf_50", "acne_safe", "gel"], activeIngredients: ["uv_filters"], irritationRisk: 1, beginnerSafe: true, experienceCompatibility: ["beginner", "intermediate", "advanced"], avoidFor: ["dry"], textureType: "gel sunscreen", barrierFriendly: true, fungalAcneSafe: true, routineComplexity: 1 },
+};
+
+const EXPERIENCE_BY_ROUTINE = { none: "beginner", basic: "beginner", moderate: "intermediate", full: "advanced" };
+const CONCERN_PRIORITY = { sensitivity: 100, acne: 80, whiteheads: 75, dark_spots: 55, open_pores: 45, dullness: 35 };
+const ACTIVE_CONFLICTS = [
+  ["retinoid", "aha"],
+  ["retinoid", "bha"],
+  ["retinoid", "strong_exfoliant"],
+  ["vitamin_c", "aha"],
+  ["vitamin_c", "bha"],
+  ["aha", "bha"],
+];
+
 const getBudgetTier = (b) => b === "under_500" ? ["low"] : b === "500_1500" ? ["low", "mid"] : ["low", "mid", "high"];
-const normalizeSkin = (s) => s === "no_idea" ? "combination" : s;
-const getRecommendations = ({ skinType, concerns, budget }) => {
+const normalizeSkin = (s) => s === "no_idea" || !s ? "combination" : s;
+const unique = (items) => [...new Set(items.filter(Boolean))];
+
+const buildProductCatalog = () => Object.fromEntries(
+  Object.entries(PRODUCTS).map(([category, items]) => [
+    category,
+    items.map((product) => {
+      const metadata = PRODUCT_METADATA[product.name] || {};
+      return {
+        ...product,
+        category,
+        ingredientTags: metadata.ingredientTags || [],
+        activeIngredients: metadata.activeIngredients || [],
+        irritationRisk: metadata.irritationRisk || 2,
+        beginnerSafe: metadata.beginnerSafe !== false,
+        experienceCompatibility: metadata.experienceCompatibility || ["beginner", "intermediate", "advanced"],
+        avoidFor: metadata.avoidFor || [],
+        textureType: metadata.textureType || category,
+        barrierFriendly: Boolean(metadata.barrierFriendly),
+        fungalAcneSafe: metadata.fungalAcneSafe !== false,
+        routineComplexity: metadata.routineComplexity || 1,
+        skinCompatibility: unique([...(product.skin_types || []), ...(metadata.skinCompatibility || [])]),
+        concerns: unique([...(product.concerns || []), ...(metadata.concerns || [])]),
+      };
+    }),
+  ])
+);
+
+const CATALOG = buildProductCatalog();
+
+const buildUserProfile = ({ skinType, concerns = [], routine, budget }) => {
   const skin = normalizeSkin(skinType);
-  const tiers = getBudgetTier(budget);
-  const score = (p) => {
-    let s = 0;
-    if (p.skin_types.includes(skin) || p.skin_types.includes("all")) s += 3;
-    concerns.forEach((c) => { if (p.concerns.includes(c)) s += 2; });
-    if (tiers.includes(p.budget)) s += 1;
-    return s;
+  const selectedConcerns = unique(concerns);
+  const experienceLevel = EXPERIENCE_BY_ROUTINE[routine] || "beginner";
+  const barrierSensitivity = selectedConcerns.includes("sensitivity") ? "high" : skin === "dry" ? "moderate" : "low";
+  const routineComplexityTolerance = experienceLevel === "advanced" ? 3 : experienceLevel === "intermediate" ? 2 : 1;
+
+  return {
+    skinType: skin,
+    experienceLevel,
+    concerns: selectedConcerns,
+    budgetTier: budget,
+    budgetTiers: getBudgetTier(budget),
+    barrierSensitivity,
+    routineComplexityTolerance,
+    isBeginner: experienceLevel === "beginner",
+    isSensitive: barrierSensitivity === "high",
+    fungalAcneFocused: selectedConcerns.includes("fungal_acne"),
+    prioritizedConcerns: [...selectedConcerns].sort((a, b) => (CONCERN_PRIORITY[b] || 10) - (CONCERN_PRIORITY[a] || 10)),
   };
-  const pick = (cat) => PRODUCTS[cat].filter((p) => tiers.includes(p.budget)).sort((a, b) => score(b) - score(a)).slice(0, 2);
-  return { cleanser: pick("cleanser"), moisturizer: pick("moisturizer"), serum: pick("serum"), sunscreen: pick("sunscreen") };
+};
+
+const buildRestrictions = (profile) => {
+  const disallowedActives = [];
+  const disallowedTags = [];
+  const avoidFlags = [];
+  let maxIrritationRisk = profile.isBeginner ? 2 : profile.experienceLevel === "intermediate" ? 3 : 5;
+  let maxTreatmentCount = profile.isBeginner ? 0 : profile.experienceLevel === "intermediate" ? 1 : 2;
+
+  if (profile.isSensitive) {
+    maxIrritationRisk = Math.min(maxIrritationRisk, 2);
+    maxTreatmentCount = Math.min(maxTreatmentCount, 1);
+    disallowedActives.push("aha", "bha", "pha", "salicylic_acid", "vitamin_c", "retinoid");
+    disallowedTags.push("strong_exfoliant", "exfoliating_cleanser", "fragrance");
+    avoidFlags.push("sensitive", "very_sensitive", "barrier_damage");
+  }
+
+  if (profile.isBeginner) {
+    disallowedActives.push("aha", "bha", "pha", "retinoid");
+    disallowedTags.push("strong_exfoliant");
+  }
+
+  if (profile.skinType === "dry") {
+    avoidFlags.push("dry", "very_dry");
+    disallowedTags.push("oil_control");
+  }
+
+  if (profile.skinType === "oily") {
+    avoidFlags.push("very_oily");
+  }
+
+  if (profile.fungalAcneFocused) {
+    avoidFlags.push("fungal_acne");
+  }
+
+  const allowGentleBeginnerTreatment = profile.isBeginner && !profile.isSensitive && profile.prioritizedConcerns.some((c) => ["dark_spots", "dullness"].includes(c));
+
+  return {
+    maxIrritationRisk,
+    maxTreatmentCount: allowGentleBeginnerTreatment ? 1 : maxTreatmentCount,
+    disallowedActives: unique(disallowedActives),
+    disallowedTags: unique(disallowedTags),
+    avoidFlags: unique(avoidFlags),
+    requireFungalAcneSafe: profile.fungalAcneFocused,
+    allowGentleBeginnerTreatment,
+  };
+};
+
+const isCompatible = (product, profile, restrictions, slot) => {
+  if (!profile.budgetTiers.includes(product.budget)) return false;
+  if (restrictions.requireFungalAcneSafe && !product.fungalAcneSafe) return false;
+  if (product.irritationRisk > restrictions.maxIrritationRisk) return false;
+  if (!product.experienceCompatibility.includes(profile.experienceLevel)) return false;
+  if (product.routineComplexity > profile.routineComplexityTolerance) return false;
+  if (product.avoidFor.some((flag) => restrictions.avoidFlags.includes(flag) || flag === profile.skinType)) return false;
+  if (product.activeIngredients.some((active) => restrictions.disallowedActives.includes(active))) return false;
+  if (product.ingredientTags.some((tag) => restrictions.disallowedTags.includes(tag))) return false;
+  if (profile.isBeginner && slot === "serum" && !restrictions.allowGentleBeginnerTreatment) return false;
+  if (profile.isBeginner && slot === "serum" && !product.beginnerSafe) return false;
+  return true;
+};
+
+const getRoutineSkeleton = (profile, restrictions) => {
+  const skeleton = ["cleanser", "moisturizer", "sunscreen"];
+  const needsTreatment = !profile.isBeginner && profile.prioritizedConcerns.some((c) => ["acne", "whiteheads", "dark_spots", "open_pores", "dullness"].includes(c));
+
+  if (needsTreatment || restrictions.allowGentleBeginnerTreatment) {
+    skeleton.splice(2, 0, "serum");
+  }
+
+  return skeleton;
+};
+
+const scoreProduct = (product, profile, selectedProducts) => {
+  let score = 0;
+  const skinMatch = product.skinCompatibility.includes(profile.skinType) || product.skinCompatibility.includes("all");
+
+  if (skinMatch) score += 28;
+  if (product.budget === profile.budgetTiers[profile.budgetTiers.length - 1]) score += 5;
+  if (product.barrierFriendly) score += profile.barrierSensitivity === "high" ? 22 : 10;
+  if (product.beginnerSafe && profile.isBeginner) score += 16;
+  if (product.irritationRisk <= 1) score += profile.isSensitive ? 16 : 6;
+  if (profile.skinType === "oily" && ["gel", "gel cream", "water serum", "fluid sunscreen", "matte sunscreen", "gel sunscreen"].includes(product.textureType)) score += 10;
+  if (profile.skinType === "dry" && ["cream cleanser", "lotion cleanser", "lotion", "rich lotion", "cream"].includes(product.textureType)) score += 10;
+
+  profile.prioritizedConcerns.forEach((concern, index) => {
+    if (product.concerns.includes(concern)) score += Math.max(12, (CONCERN_PRIORITY[concern] || 20) / (index + 2));
+  });
+
+  if (selectedProducts.some((selected) => selected.brand === product.brand)) score -= 14;
+  if (product.ingredientTags.includes("strong_exfoliant")) score -= profile.isSensitive ? 80 : 15;
+  if (product.category === "sunscreen") score += 18;
+  if (product.category === "moisturizer" && profile.barrierSensitivity !== "low") score += 18;
+
+  return score;
+};
+
+const hasActiveConflict = (candidate, selectedProducts) => {
+  const selectedActives = selectedProducts.flatMap((product) => [...product.activeIngredients, ...product.ingredientTags]);
+  const candidateActives = [...candidate.activeIngredients, ...candidate.ingredientTags];
+
+  return ACTIVE_CONFLICTS.some(([a, b]) => (
+    (candidateActives.includes(a) && selectedActives.includes(b)) ||
+    (candidateActives.includes(b) && selectedActives.includes(a))
+  ));
+};
+
+const selectForSlot = (slot, profile, restrictions, selectedProducts) => {
+  const compatible = (CATALOG[slot] || [])
+    .filter((product) => isCompatible(product, profile, restrictions, slot))
+    .filter((product) => !hasActiveConflict(product, selectedProducts))
+    .map((product) => ({ product, score: scoreProduct(product, profile, selectedProducts) }))
+    .sort((a, b) => b.score - a.score)
+    .map(({ product }) => product);
+
+  return compatible.slice(0, profile.isBeginner ? 1 : 2);
+};
+
+const validateRoutine = (routine, profile, restrictions) => {
+  const selected = Object.values(routine).flat();
+  const activeLoad = selected.filter((product) => product.category === "serum" || product.routineComplexity > 1).length;
+  const hasConflict = selected.some((product, index) => hasActiveConflict(product, selected.slice(0, index)));
+
+  if (activeLoad > restrictions.maxTreatmentCount || hasConflict) {
+    const saferRoutine = { ...routine };
+    delete saferRoutine.serum;
+    return saferRoutine;
+  }
+
+  if (profile.isBeginner) {
+    return Object.fromEntries(Object.entries(routine).filter(([category]) => ["cleanser", "moisturizer", "sunscreen"].includes(category)));
+  }
+
+  return routine;
+};
+
+const getSafetyReason = (product, profile) => {
+  if (profile.isSensitive && product.barrierFriendly) return "It keeps irritation risk low and supports a calmer skin barrier.";
+  if (profile.isBeginner) return "It fits a starter routine without pushing strong actives too early.";
+  if (product.category === "sunscreen") return "Daily SPF protects against tanning, PIH, and irritation from treatment routines.";
+  if (product.barrierFriendly) return "It helps keep the routine supportive instead of overly active.";
+  return "It stays compatible with the rest of the routine.";
+};
+
+const getTargetReason = (product, profile) => {
+  const matchedConcern = profile.prioritizedConcerns.find((concern) => product.concerns.includes(concern));
+  if (matchedConcern === "acne") return "acne and excess-oil control";
+  if (matchedConcern === "whiteheads") return "clogged pores and whiteheads";
+  if (matchedConcern === "dark_spots") return "dark spots and post-acne marks";
+  if (matchedConcern === "open_pores") return "visible pores and oil balance";
+  if (matchedConcern === "dullness") return "dullness and hydration";
+  if (matchedConcern === "sensitivity") return "sensitivity and barrier comfort";
+  return "daily barrier maintenance";
+};
+
+const addRecommendationReasoning = (product, profile) => {
+  const skinPhrase = profile.skinType === "combination" ? "combination skin" : `${profile.skinType} skin`;
+  return {
+    ...product,
+    benefit: `Recommended for ${skinPhrase}: targets ${getTargetReason(product, profile)}. ${getSafetyReason(product, profile)} Patch test and introduce slowly.`,
+  };
+};
+
+const getRecommendations = (answers) => {
+  const profile = buildUserProfile(answers);
+  const restrictions = buildRestrictions(profile);
+  const selectedProducts = [];
+  const routine = {};
+
+  getRoutineSkeleton(profile, restrictions).forEach((slot) => {
+    const products = selectForSlot(slot, profile, restrictions, selectedProducts);
+    if (products.length) {
+      routine[slot] = products;
+      selectedProducts.push(...products);
+    }
+  });
+
+  const safeRoutine = validateRoutine(routine, profile, restrictions);
+
+  return Object.fromEntries(
+    Object.entries(safeRoutine).map(([category, products]) => [
+      category,
+      products.map((product) => addRecommendationReasoning(product, profile)),
+    ])
+  );
 };
 
 const loadingLines = ["reading your skin profile", "matching concern patterns", "building your routine", "almost there"];
@@ -128,7 +391,7 @@ export default function App() {
   const optionClass = "w-full py-4 px-5 rounded-xl border text-left font-normal text-[#f0e6d3]";
 
   return (
-    <div style={{ fontFamily: "'Space Grotesk', sans-serif", backgroundColor: '#1a1a1a', minHeight: '100vh', color: '#f0e6d3' }}>
+    <div style={{ fontFamily: "'Space Grotesk', sans-serif" }} className="bg-[#1a1a1a] min-h-screen text-[#f0e6d3]">
       <div className="max-w-[420px] mx-auto min-h-screen px-6 py-12 relative">
         <div className={`transition-opacity duration-400 ${visible ? "opacity-100" : "opacity-0"}`}>
           {screen === 1 && (
